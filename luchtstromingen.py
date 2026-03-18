@@ -37,18 +37,18 @@ def input_druk_als_blokgolf(time, inputs):
 inputs = {
     "druk_luchtwegopening": input_druk_als_blokgolf,
     "amplitude_luchtwegdruk": 5,
-    "ademhalingsfrequentie": 12,
-    "druk_duty": 0.4,
-    "PEEP": 0.0,
+    "ademhalingsfrequentie": 20,
+    "druk_duty": 0.5,
+    "PEEP": 5.0,
 }
 
 
 # %%
 def elastische_druk(volume, g):
     return (
-        g[0] * (volume - g[1])
-        + g[2] * np.exp(g[3] * volume)
-        + g[4] / volume
+        g[0] * (volume  - g[1])
+        + g[2] * np.exp(g[3] * volume )
+        + g[4] / volume 
     )
 
 
@@ -57,12 +57,13 @@ def drukken_dynamische_elastantie(inputs, parameters):
     V_luchtwegen = inputs["volume_luchtwegen"]
     V_alveoli = inputs["volume_alveoli"]
     V_longen = V_luchtwegen + V_alveoli
+    functioneel_volume_alveoli = V_alveoli/0.8
 
     P_E_luchtwegen = elastische_druk(
         V_luchtwegen, parameters["g_luchtwegen"]
     )
     P_E_alveoli = elastische_druk(
-        V_alveoli, parameters["g_alveoli"]
+        functioneel_volume_alveoli, parameters["g_alveoli"]
     )
     P_E_thoraxwand = elastische_druk(
         V_longen, parameters["g_thoraxwand"]
@@ -126,12 +127,4 @@ luchtstromingen_model = Model(
     ],
     inputs=inputs,
     parameters=parameters_luchtstromingen,
-)
-
-# %%
-luchtstromingen_model_init = luchtstromingen_model.replace(
-    initial_state={
-        "volume_luchtwegen": 0.7,
-        "volume_alveoli": 2.8,
-    },
 )
