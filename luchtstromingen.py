@@ -38,7 +38,7 @@ inputs = {
     "druk_luchtwegopening": input_druk_als_blokgolf,
     "amplitude_luchtwegdruk": 5,
     "ademhalingsfrequentie": 20,
-    "druk_duty": 0.4,
+    "druk_duty": 0.5,
     "PEEP": 5.0,
 }
 
