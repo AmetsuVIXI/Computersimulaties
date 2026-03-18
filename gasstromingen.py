@@ -37,13 +37,13 @@ def dynamics(state, inputs, parameters):
         state[f"fractie_{gas}_luchtwegen"],
         state[f"fractie_{gas}_alveoli"],
         inputs["debiet_luchtwegen_alveoli"],
-        inputs["volume_alveoli"],
+        inputs["volume_alveoli"]/0.8,
     )
     dfractie_LW = dfractie_LWO_LW + dfractie_alv_LW
     dfractie_alv = (
         dfractie_LW_alv
         - inputs[f"flux_{gas}_alveoli_PC"]
-        / inputs["volume_alveoli"]
+        / inputs["volume_alveoli"]/0.8
     )
 
     return {
