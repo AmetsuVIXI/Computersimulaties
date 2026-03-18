@@ -57,12 +57,13 @@ def drukken_dynamische_elastantie(inputs, parameters):
     V_luchtwegen = inputs["volume_luchtwegen"]
     V_alveoli = inputs["volume_alveoli"]
     V_longen = V_luchtwegen + V_alveoli
+    functioneel_volume_alveoli = V_alveoli/0.8
 
     P_E_luchtwegen = elastische_druk(
         V_luchtwegen, parameters["g_luchtwegen"]
     )
     P_E_alveoli = elastische_druk(
-        V_alveoli/0.8, parameters["g_alveoli"]
+        functioneel_volume_alveoli, parameters["g_alveoli"]
     )
     P_E_thoraxwand = elastische_druk(
         V_longen, parameters["g_thoraxwand"]
