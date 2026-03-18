@@ -46,9 +46,9 @@ inputs = {
 # %%
 def elastische_druk(volume, g):
     return (
-        g[0] * (volume - g[1])
-        + g[2] * np.exp(g[3] * volume)
-        + g[4] / volume
+        g[0] * (volume / 0.8 - g[1])
+        + g[2] * np.exp(g[3] * volume / 0.8)
+        + g[4] / volume / 0.8
     )
 
 
