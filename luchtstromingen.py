@@ -37,9 +37,9 @@ def input_druk_als_blokgolf(time, inputs):
 inputs = {
     "druk_luchtwegopening": input_druk_als_blokgolf,
     "amplitude_luchtwegdruk": 5,
-    "ademhalingsfrequentie": 12,
+    "ademhalingsfrequentie": 20,
     "druk_duty": 0.4,
-    "PEEP": 0.0,
+    "PEEP": 5.0,
 }
 
 
@@ -126,12 +126,4 @@ luchtstromingen_model = Model(
     ],
     inputs=inputs,
     parameters=parameters_luchtstromingen,
-)
-
-# %%
-luchtstromingen_model_init = luchtstromingen_model.replace(
-    initial_state={
-        "volume_luchtwegen": 0.7,
-        "volume_alveoli": 2.8,
-    },
 )
