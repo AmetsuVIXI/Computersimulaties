@@ -12,8 +12,8 @@ parameters = {
     "kPa_per_cmH2O": 0.0981,  # kPa/cmH2O,
     "bindingscapaciteit_Hb_per_gram": 1.35e-3,  # L(O2)/g(Hb)
     "concentratie_Hb": 150,  # g(Hb)/L(bloed)
-    "diffusiecapaciteit_O2_alveoli_PC": 0.0042 * 0.8,  # L/(s*kPa)
-    "diffusiecapaciteit_CO2_alveoli_PC": 0.025 * 0.8,
+    "diffusiecapaciteit_O2_alveoli_PC": 0.0042,  # L/(s*kPa)
+    "diffusiecapaciteit_CO2_alveoli_PC": 0.025,
 }
 
 
